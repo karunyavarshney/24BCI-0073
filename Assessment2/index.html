@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="style(Assessment2).css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Password Generator</h1>
+
+  <input type="text" id="password" placeholder="Your password" readonly>
+
+  <div class="options">
+    <label>Password Length: <span id="lenVal">8</span></label>
+    <input type="range" id="length" min="4" max="20" value="8">
+    
+    <label><input type="checkbox" id="uppercase" checked> Uppercase</label>
+    <label><input type="checkbox" id="numbers" checked> Numbers</label>
+    <label><input type="checkbox" id="symbols"> Symbols</label>
+  </div>
+
+  <button onclick="generatePassword()">Generate Password</button>
+  <button onclick="copyPassword()">Copy</button>
+
+</div>
+
+<script src="script(Assessment2).js"></script>
+</body>
+</html>
