@@ -1,76 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karunya Varshney | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flicksy — Your vibe, your flicks.</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-<header>
-  <h1>Karunya Varshney</h1>
-  <p>Computer Science Student | Web Developer</p>
-</header>
+  <!-- ── NOISE OVERLAY ── -->
+  <div class="noise"></div>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
-</nav>
+  <!-- ── HEADER ── -->
+  <header class="site-header">
+    <div class="logo">
+      <span class="logo-icon">▶</span>
+      <span class="logo-text">Flicksy</span>
+    </div>
+    <p class="tagline">Your vibe, your flicks.</p>
+  </header>
 
-<div class="container">
+  <!-- ── HERO / FILTER SECTION ── -->
+  <section class="hero">
 
-  <div class="section" id="about">
-    <h2>About Me</h2>
-    <p>I am a Computer Science student at VIT Vellore with an interest in Web Development, Artificial Intelligence, and Problem Solving.</p>
-  </div>
+    <!-- Ambient spotlight blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
 
-  <div class="section">
-    <h2>Education</h2>
-    <p><strong>B.Tech CSE</strong> - VIT Vellore (2023–2027)</p>
-    <p>GPA: 8.82</p>
-  </div>
+    <div class="hero-content">
+      <h1 class="hero-headline">
+        <span class="line-1">Find your</span>
+        <span class="line-2">next obsession.</span>
+      </h1>
+      <p class="hero-sub">Pick a vibe. Pick a language. Let Flicksy do the rest.</p>
 
-  <div class="section" id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>C, C++, Python, Java</li>
-      <li>HTML, CSS, JavaScript, React</li>
-      <li>Node.js, Express.js</li>
-      <li>MySQL</li>
-      <li>Git, GitHub</li>
-    </ul>
-  </div>
+      <!-- Filters -->
+      <div class="filter-row">
 
-  <div class="section" id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project-box">
-        <h3>Web Applications</h3>
-        <p>Built responsive applications using HTML, CSS, JavaScript.</p>
-      </div>
-      <div class="project-box">
-        <h3>Portfolio Website</h3>
-        <p>Created personal portfolio website with clean UI.</p>
+        <div class="select-wrap">
+          <label for="genreSelect">Genre</label>
+          <div class="select-box">
+            <select id="genreSelect">
+              <option value="all">All Genres</option>
+              <option value="Action">Action</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Romance">Romance</option>
+              <option value="Horror">Horror</option>
+              <option value="Sci-Fi">Sci-Fi</option>
+              <option value="Thriller">Thriller</option>
+              <option value="Drama">Drama</option>
+            </select>
+            <span class="arrow">▾</span>
+          </div>
+        </div>
+
+        <div class="select-wrap">
+          <label for="langSelect">Language</label>
+          <div class="select-box">
+            <select id="langSelect">
+              <option value="all">All Languages</option>
+              <option value="English">English</option>
+              <option value="Hindi">Hindi</option>
+              <option value="Tamil">Tamil</option>
+              <option value="Telugu">Telugu</option>
+            </select>
+            <span class="arrow">▾</span>
+          </div>
+        </div>
+
+        <button class="recommend-btn" id="recommendBtn">
+          <span class="btn-text">Recommend</span>
+          <span class="btn-icon">→</span>
+        </button>
+
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="section" id="contact">
-    <h2>Contact</h2>
-    <p>Email: karunyavarshney123@gmail.com</p>
-    <p>Phone: +91-9560335502</p>
-    <p>GitHub: https://github.com/karunyavarshney/24BCI-0073</p>
-    <p>LinkedIn: linkedin.com/in/karunya-varshney</p>
-  </div>
+  <!-- ── RESULTS SECTION ── -->
+  <section class="results-section" id="resultsSection">
 
-</div>
+    <!-- Loading spinner -->
+    <div class="loader" id="loader">
+      <div class="spinner"></div>
+      <p>Curating your flicks…</p>
+    </div>
 
-<footer>
-  <p>© 2026 Karunya Varshney</p>
-</footer>
+    <!-- Result meta -->
+    <div class="results-meta" id="resultsMeta"></div>
 
+    <!-- Movie grid -->
+    <div class="movie-grid" id="movieGrid"></div>
+
+    <!-- No-results state -->
+    <div class="no-results" id="noResults">
+      <div class="no-results-icon">🎬</div>
+      <h3>No flicks found.</h3>
+      <p>Try a different genre or language combo — we promise great stuff exists.</p>
+      <button class="reset-btn" id="resetBtn">Reset Filters</button>
+    </div>
+
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <p>
+      <span class="logo-text small">Flicksy</span> · Your vibe, your flicks. · Data is curated with ❤️
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
